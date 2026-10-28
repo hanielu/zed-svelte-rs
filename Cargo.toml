@@ -1,0 +1,18 @@
+[package]
+name = "zed_svelte_rs"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license = "Apache-2.0"
+
+[lib]
+path = "src/svelte.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.7.0"
+
+# Zed builds dev extensions without `--release`; optimise that build like a published one.
+[profile.dev]
+opt-level = "s"
+debug = false
